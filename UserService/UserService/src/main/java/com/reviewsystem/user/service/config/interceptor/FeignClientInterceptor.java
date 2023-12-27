@@ -2,6 +2,9 @@ package com.reviewsystem.user.service.config.interceptor;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.OAuth2AuthorizeRequest;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
@@ -10,6 +13,8 @@ import org.springframework.stereotype.Component;
 @Configuration
 @Component
 public class FeignClientInterceptor implements RequestInterceptor {
+    private Logger logger = LoggerFactory.getLogger(FeignClientInterceptor.class);
+    @Autowired
     private OAuth2AuthorizedClientManager manager;
 
     @Override
@@ -20,6 +25,7 @@ public class FeignClientInterceptor implements RequestInterceptor {
                         .build())
                 .getAccessToken()
                 .getTokenValue();
+        logger.info("FeignClient Interceptor : {}", token);
         requestTemplate.header("Authorization", "Bearer "+token);
     }
 }

@@ -9,3 +9,9 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: microservices
+
+# Okta configuration for Rating service
+okta:
+  oauth2:
+    issuer: https://dev-49167573.okta.com/oauth2/default
+    audience: api://default
