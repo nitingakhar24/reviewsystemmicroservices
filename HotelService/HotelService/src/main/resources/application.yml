@@ -14,3 +14,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+# Okta configuration for Hotel service
+okta:
+  oauth2:
+    issuer: https://dev-49167573.okta.com/oauth2/default
+    audience: api://default

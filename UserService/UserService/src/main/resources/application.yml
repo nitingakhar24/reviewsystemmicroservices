@@ -17,6 +17,29 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-49167573.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client:
+            provider: okta
+            authorizationGrantType: client_credentials
+            scope: internal
+            client-id: 0oae4p96as0kgkhc65d7
+            client-secret: Sw6kWTWhFVPQ23OgatrkKBXqkaYjO9HP9CdUeQA7v9U-r2neuZu_8Bldsj6UMgXe
+
+        provider:
+          okta:
+            issuerUri: https://dev-49167573.okta.com/oauth2/default
+
+
+
+
+
+
 management:
   health:
     circuitbreakers:
@@ -56,3 +79,9 @@ resilience4j:
         limitRefreshPeriod: 4s
         limitForPeriod: 2
         timeoutDuration: 0s
+
+# Okta configuration for User service
+okta:
+  oauth2:
+    issuer: https://dev-49167573.okta.com/oauth2/default
+    audience: api://default
