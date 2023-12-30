@@ -39,3 +39,8 @@ okta:
     client-id: 0oae4p96as0kgkhc65d7
     client-secret: Sw6kWTWhFVPQ23OgatrkKBXqkaYjO9HP9CdUeQA7v9U-r2neuZu_8Bldsj6UMgXe
     scopes: openid, profile, email, offline_access
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

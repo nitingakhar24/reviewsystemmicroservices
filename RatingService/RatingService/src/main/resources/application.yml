@@ -15,3 +15,8 @@ okta:
   oauth2:
     issuer: https://dev-49167573.okta.com/oauth2/default
     audience: api://default
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
