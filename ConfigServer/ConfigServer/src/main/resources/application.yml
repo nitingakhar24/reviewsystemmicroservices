@@ -11,3 +11,8 @@ spring:
         git:
           uri: https://github.com/nitingakhar24/microservices-reviewsystem-config
           clone-on-start: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
